@@ -5,9 +5,9 @@
 @section('main')
     <div class="mb-4">
         <!-- Page Heading
-                        <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                            <h1 class="h3 mb-0 text-gray-800"><i class="fas fa-fw fa-home"></i> Dashboard</h1>
-                        </div> -->
+                                        <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                                            <h1 class="h3 mb-0 text-gray-800"><i class="fas fa-fw fa-home"></i> Dashboard</h1>
+                                        </div> -->
 
         <div class="row">
             @if (Auth::user()->role == 'admin')
@@ -50,7 +50,8 @@
                         <div class="card-body">
                             <div class="row no-gutters align-items-center">
                                 <div class="col mr-2">
-                                    <div class="h5 mb-0 font-weight-bold text-gray-800"><a href=""
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800"><a
+                                            href="{{ route('indexDataAlternatif') }}"
                                             class="text-secondary text-decoration-none">Data Alternatif</a></div>
                                 </div>
                                 <div class="col-auto">
