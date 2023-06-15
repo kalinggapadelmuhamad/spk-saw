@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Hasil;
 use App\Models\Kriteria;
 use App\Models\Penilaian;
 use App\Models\Alternatif;
@@ -11,6 +12,8 @@ class PerhitunganController extends Controller
 {
     public function indexPerhitungan()
     {
+        Hasil::truncate();
+
         $kriterias      = [];
         $total_b        = Kriteria::sum('bobot');
         $kriteriaRows   = Kriteria::orderBy('kode_kriteria', 'ASC')->get();
@@ -25,7 +28,7 @@ class PerhitunganController extends Controller
             $kriterias[$krit->id]['normalisasi'] = $krit->bobot / $total_b;
         }
 
-        $altRows        = Alternatif::all();
+        $altRows        = Alternatif::latest()->get();
         $alternatifs    = [];
 
         foreach ($altRows as $alt) {
@@ -33,8 +36,8 @@ class PerhitunganController extends Controller
             $alternatifs[$alt->id]['nama'] = $alt->nama;
         }
 
+        // Matrikx Keputusan X
         $matriks_x = [];
-
         foreach ($kriterias as $kriteria) {
             foreach ($alternatifs as $alternatif) {
 
@@ -49,6 +52,62 @@ class PerhitunganController extends Controller
             }
         }
 
+        $nilai_u = [];
+        foreach ($kriterias as $kriteria) {
+            foreach ($alternatifs as $alternatif) {
+
+                $id_alternatif  = $alternatif['id'];
+                $id_kriteria    = $kriteria['id'];
+                $nilai          = $matriks_x[$id_kriteria][$id_alternatif];
+                $type_kriteria  = $kriteria['type'];
+
+                $nilai_max = max($matriks_x[$id_kriteria]);
+                $nilai_min = min($matriks_x[$id_kriteria]);
+
+                if ($type_kriteria == 'Benefit') {
+                    $u = ($nilai - $nilai_min) / ($nilai_max - $nilai_min);
+                } elseif ($type_kriteria == 'Cost') {
+                    $u = ($nilai_max - $nilai) / ($nilai_max - $nilai_min);
+                } else {
+                    $u = null;
+                }
+
+                $nilai_u[$id_kriteria][$id_alternatif] = $u;
+            }
+        }
+
+        //Nilai Utility (U)
+        $nilai_ub = [];
+        foreach ($kriterias as $kriteria) {
+            foreach ($alternatifs as $alternatif) {
+
+                $id_alternatif  = $alternatif['id'];
+                $id_kriteria    = $kriteria['id'];
+                $u              = $nilai_u[$id_kriteria][$id_alternatif];
+                $normalisasi    = $kriteria['normalisasi'];
+
+                $nilai_ub[$id_kriteria][$id_alternatif] = $u * $normalisasi;
+            }
+        }
+
+        //Perhitungan Nilai
+        $perhitungan = [];
+        foreach ($alternatifs as $alternatif) {
+            $nilai_total = 0;
+            foreach ($kriterias as $kriteria) {
+                $normalisasi    = $kriteria['normalisasi'];
+                $id_alternatif  = $alternatif['id'];
+                $id_kriteria    = $kriteria['id'];
+
+                $u = $nilai_u[$id_kriteria][$id_alternatif];
+                $nilai_total += $normalisasi * $u;
+            }
+            $perhitungan[$alternatif['id']]['id']       = $alternatif['id'];
+            $perhitungan[$alternatif['id']]['nama']     = $alternatif['nama'];
+            $perhitungan[$alternatif['id']]['nilai']    = $nilai_total;
+        }
+
+
 
         // dd($kriterias);
 
@@ -57,7 +116,10 @@ class PerhitunganController extends Controller
             'page',
             'kriterias',
             'alternatifs',
-            'matriks_x'
+            'matriks_x',
+            'nilai_u',
+            'nilai_ub',
+            'perhitungan'
         ));
     }
 }

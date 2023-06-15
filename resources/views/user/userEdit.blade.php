@@ -4,8 +4,8 @@
 @endpush
 @section('main')
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800"><i class="fas fa-fw fa-user"></i>Edit Data User</h1>
-        <a href="{{ route('indexUser') }}" class="btn btn-secondary bg-primary"><span class="icon text-white-50"></span>
+        <h1 class="h4 mb-0 text-gray-800">Edit Data User</h1>
+        <a href="{{ route('indexUser') }}" class="btn btn-sm btn-primary"><span class="icon text-white-50"></span>
             <span class="text">Kembali</span>
         </a>
     </div>
@@ -72,10 +72,11 @@
                     </div>
                 </div>
             </div>
-            <div class="card-footer text-right">
-                <button name="submit" value="submit" type="submit" class="btn btn-success"><i class="fa fa-save"></i>
+            <div class="card-footer text-center">
+                <button name="submit" value="submit" type="submit" class="btn btn-sm btn-success col-5"><i
+                        class="fa fa-save"></i>
                     Update</button>
-                <button type="reset" class="btn btn-info"><i class="fa fa-sync-alt"></i> Reset</button>
+                <button type="reset" class="btn btn-sm col-5 btn-info"><i class="fa fa-sync-alt"></i> Reset</button>
             </div>
         </div>
     </form>

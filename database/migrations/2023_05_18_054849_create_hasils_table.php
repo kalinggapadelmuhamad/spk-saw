@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->uuid('uuid');
             $table->foreignId('alternatif_id')->constrained('alternatifs')->cascadeOnDelete()->cascadeOnUpdate();
+            $table->float('nilai');
             $table->timestamps();
         });
     }

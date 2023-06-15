@@ -4,16 +4,16 @@
 @endpush
 @section('main')
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">Data Profile</h1>
+        <h1 class="h4 mb-0 text-gray-800">Data Profile</h1>
     </div>
 
     <form action="{{ route('updateProfile', Auth::user()) }}" method="post">
         @method('patch')
         @csrf
         <div class="card shadow mb-4">
-            <div class="card-header py-3">
+            {{-- <div class="card-header py-3">
                 <h6 class="m-0 font-weight-bold text-primary"><i class="fas fa-fw fa-edit"></i> Edit Data Profile</h6>
-            </div>
+            </div> --}}
 
             <div class="card-body">
                 <div class="row">
@@ -57,10 +57,10 @@
                 </div>
             </div>
             <div class="card-footer text-center">
-                <button name="submit" value="submit" type="submit" class="btn btn-success col-5"><i
+                <button name="submit" value="submit" type="submit" class="btn btn-sm btn-success col-5"><i
                         class="fa fa-save"></i>
                     Simpan</button>
-                <button type="reset" class="btn btn-info col-5"><i class="fa fa-sync-alt"></i> Reset</button>
+                <button type="reset" class="btn btn-sm btn-info col-5"><i class="fa fa-sync-alt"></i> Reset</button>
             </div>
         </div>
     </form>

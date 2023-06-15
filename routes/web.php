@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DataAlternatifController;
+use App\Http\Controllers\HasilController;
 use App\Http\Controllers\KriteriaController;
 use App\Http\Controllers\PenilaianController;
 use App\Http\Controllers\PerhitunganController;
@@ -73,6 +74,11 @@ Route::middleware(['auth'])->group(function () {
 
     Route::prefix('/perhitungan')->group(function () {
         Route::get('/', [PerhitunganController::class, 'indexPerhitungan'])->name('indexPerhitungan');
+    });
+
+    Route::prefix('/hasil')->group(function () {
+        Route::get('/', [HasilController::class, 'indexHasil'])->name('indexHasil');
+        Route::get('/export', [HasilController::class, 'exportHasil'])->name('exportHasil');
     });
 
     Route::prefix('/user')->group(function () {

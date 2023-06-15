@@ -11,7 +11,8 @@ class Hasil extends Model
 
     protected $fillable = [
         'uuid',
-        'alternatif_id'
+        'alternatif_id',
+        'nilai'
     ];
 
     public function Alternatif()

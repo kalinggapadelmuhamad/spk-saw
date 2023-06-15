@@ -4,9 +4,10 @@
 @endpush
 @section('main')
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800"> Edit Data Kriteria</h1>
+        <h1 class="h4 mb-0 text-gray-800"> Edit Data Kriteria</h1>
 
-        <a href="{{ route('indexKriteria') }}" class="btn btn-secondary bg-primary"><span class="icon text-white-50"></span>
+        <a href="{{ route('indexKriteria') }}" class="btn btn-sm btn-secondary bg-primary"><span
+                class="icon text-white-50"></span>
             <span class="text">Kembali</span>
         </a>
     </div>
@@ -56,13 +57,14 @@
                             <p class="text-danger fs-6 fw-light my-2">{{ $message }}</p>
                         @enderror
                     </div>
-                    
+
                 </div>
             </div>
             <div class="card-footer text-center">
-                <button name="submit" value="submit" type="submit" class="btn btn-success col-5"><i class="fa fa-save"></i>
+                <button name="submit" value="submit" type="submit" class="btn btn-success btn-sm col-5"><i
+                        class="fa fa-save"></i>
                     Update</button>
-                <button type="reset" class="btn btn-info col-5"><i class="fa fa-sync-alt"></i> Reset</button>
+                <button type="reset" class="btn btn-sm btn-info col-5"><i class="fa fa-sync-alt"></i> Reset</button>
             </div>
         </form>
     </div>

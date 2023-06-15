@@ -4,9 +4,9 @@
 @endpush
 @section('main')
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">Data Alternatif</h1>
+        <h1 class="h4 mb-0 text-gray-800">Data Alternatif</h1>
 
-        <a href="{{ route('createDataAlternatif') }}" class="btn btn-success bg-primary"> Tambah Data </a>
+        <a href="{{ route('createDataAlternatif') }}" class="btn btn-sm btn-primary"> Tambah Data </a>
     </div>
     <div class="card shadow mb-4">
 
@@ -17,7 +17,7 @@
                     <thead class=" text-black">
                         <tr align="center">
                             <th style="width: 3%">No</th>
-                            <th>Nrp</th>
+                            <th>NRP</th>
                             <th>Nama</th>
                             <th width="15%">Action</th>
                         </tr>

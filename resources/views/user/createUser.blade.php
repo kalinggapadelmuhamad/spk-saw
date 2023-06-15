@@ -4,9 +4,9 @@
 @endpush
 @section('main')
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">Tambah Data User</h1>
+        <h1 class="h4 mb-0 text-gray-800">Tambah Data User</h1>
 
-        <a href="{{ route('indexUser') }}" class="btn btn-secondary bg-primary"><span class="icon text-white-50"></span>
+        <a href="{{ route('indexUser') }}" class="btn btn-sm btn-primary"><span class="icon text-white-50"></span>
             <span class="text">Kembali</span>
         </a>
     </div>
@@ -62,12 +62,13 @@
                     </div>
 
                 </div>
-                <div class="card-footer text-center">
-                    <button name="submit" value="submit" type="submit" class="btn btn-success col-5"><i
-                            class="fa fa-save"></i>
-                        Simpan</button>
-                    <button type="reset" class="btn btn-info col-5"><i class="fa fa-sync-alt"></i> Reset</button>
-                </div>
+            </div>
+            <div class="card-footer text-center">
+                <button name="submit" value="submit" type="submit" class="btn btn-sm btn-success col-5"><i
+                        class="fa fa-save"></i>
+                    Simpan</button>
+                <button type="reset" class="btn btn-sm btn-info col-5"><i class="fa fa-sync-alt"></i> Reset</button>
+            </div>
         </form>
     </div>
 @endsection

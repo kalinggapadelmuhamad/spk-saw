@@ -57,41 +57,41 @@ class DatabaseSeeder extends Seeder
                 'type'          => 'Benefit',
                 'bobot'         => 10
             ],
-            [
-                'uuid'          => Str::uuid(),
-                'kode_kriteria' => 'C3',
-                'nama'          => 'Metode yang digunakan',
-                'type'          => 'Benefit',
-                'bobot'         => 10
-            ],
-            [
-                'uuid'          => Str::uuid(),
-                'kode_kriteria' => 'C4',
-                'nama'          => 'Penguasaan materi',
-                'type'          => 'Benefit',
-                'bobot'         => 15
-            ],
-            [
-                'uuid'          => Str::uuid(),
-                'kode_kriteria' => 'C5',
-                'nama'          => 'Manajemen waktu',
-                'type'          => 'Benefit',
-                'bobot'         => 15
-            ],
-            [
-                'uuid'          => Str::uuid(),
-                'kode_kriteria' => 'C6',
-                'nama'          => 'Kemampuan menjelaskan',
-                'type'          => 'Benefit',
-                'bobot'         => 10
-            ],
-            [
-                'uuid'          => Str::uuid(),
-                'kode_kriteria' => 'C7',
-                'nama'          => 'Jam mengajar',
-                'type'          => 'Benefit',
-                'bobot'         => 20
-            ],
+            // [
+            //     'uuid'          => Str::uuid(),
+            //     'kode_kriteria' => 'C3',
+            //     'nama'          => 'Metode yang digunakan',
+            //     'type'          => 'Benefit',
+            //     'bobot'         => 10
+            // ],
+            // [
+            //     'uuid'          => Str::uuid(),
+            //     'kode_kriteria' => 'C4',
+            //     'nama'          => 'Penguasaan materi',
+            //     'type'          => 'Benefit',
+            //     'bobot'         => 15
+            // ],
+            // [
+            //     'uuid'          => Str::uuid(),
+            //     'kode_kriteria' => 'C5',
+            //     'nama'          => 'Manajemen waktu',
+            //     'type'          => 'Benefit',
+            //     'bobot'         => 15
+            // ],
+            // [
+            //     'uuid'          => Str::uuid(),
+            //     'kode_kriteria' => 'C6',
+            //     'nama'          => 'Kemampuan menjelaskan',
+            //     'type'          => 'Benefit',
+            //     'bobot'         => 10
+            // ],
+            // [
+            //     'uuid'          => Str::uuid(),
+            //     'kode_kriteria' => 'C7',
+            //     'nama'          => 'Jam mengajar',
+            //     'type'          => 'Benefit',
+            //     'bobot'         => 20
+            // ],
         ]);
     }
 }

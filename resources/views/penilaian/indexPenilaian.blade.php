@@ -8,7 +8,7 @@
 @endpush
 @section('main')
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">Data Penilaian</h1>
+        <h1 class="h4 mb-0 text-gray-800">Data Penilaian</h1>
     </div>
     <div class="card shadow mb-4">
         <div class="card-body">
@@ -135,10 +135,10 @@
                                                 </div>
                                             </div>
                                             <div class="modal-footer">
-                                                <button type="button" class="btn btn-warning" data-dismiss="modal"><i
-                                                        class="fa fa-times"></i>
+                                                <button type="button" class="btn btn-sm btn-warning"
+                                                    data-dismiss="modal"><i class="fa fa-times"></i>
                                                     Batal</button>
-                                                <button type="submit" name="edit" class="btn btn-success"><i
+                                                <button type="submit" name="edit" class="btn btn-sm btn-success"><i
                                                         class="fa fa-save"></i>
                                                     Update</button>
                                             </div>
