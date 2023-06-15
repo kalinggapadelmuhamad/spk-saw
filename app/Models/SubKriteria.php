@@ -20,4 +20,9 @@ class SubKriteria extends Model
     {
         return $this->belongsTo(Kriteria::class);
     }
+
+    public function Penilaian()
+    {
+        return $this->hasMany(Penilaian::class);
+    }
 }

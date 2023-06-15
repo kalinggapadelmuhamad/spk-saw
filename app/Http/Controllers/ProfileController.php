@@ -22,7 +22,6 @@ class ProfileController extends Controller
 
     public function updateProfile(Request $request, User $user)
     {
-        // dd($request->all());
 
         $request->validate([
             'nama'  => 'required|string',

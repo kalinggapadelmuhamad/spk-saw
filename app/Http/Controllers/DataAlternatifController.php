@@ -12,7 +12,7 @@ class DataAlternatifController extends Controller
 {
     public function indexDataAlternatif()
     {
-        $dataAlternatifs = Alternatif::orderBy('id', 'ASC')->get();
+        $dataAlternatifs = Alternatif::latest()->get();
         $page            = 'alternatif';
         return view('alternatif.indexAlternatif', compact([
             'dataAlternatifs',
@@ -31,7 +31,7 @@ class DataAlternatifController extends Controller
     public function storeDataAlternatif(Request $request)
     {
         $request->validate([
-            'nrp'   => 'required|min:5|max:5|unique:alternatifs',
+            'nrp'   => 'required|min:5|unique:alternatifs',
             'nama'  => 'required'
         ]);
 

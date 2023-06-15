@@ -19,12 +19,18 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'uuid',
-        'username',
+        'nrp',
         'password',
         'nama',
         'email',
-        'role'
+        'role',
+        'status'
     ];
+
+    public function Penilaian()
+    {
+        return $this->hasMany(Penilaian::class);
+    }
 
     /**
      * The attributes that should be hidden for serialization.

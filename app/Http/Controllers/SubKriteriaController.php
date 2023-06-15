@@ -14,7 +14,7 @@ class SubKriteriaController extends Controller
 {
     public function indexSubKriteria()
     {
-        $subkriterias   = Kriteria::orderBy('kode_kriteria', 'ASC')->with('SubKriteria', function ($query) {
+        $subkriterias   = Kriteria::latest()->with('SubKriteria', function ($query) {
             $query->orderBy('nilai', 'DESC');
         })->get();
         $page           = 'subkriteria';

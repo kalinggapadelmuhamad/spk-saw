@@ -4,8 +4,11 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DataAlternatifController;
 use App\Http\Controllers\KriteriaController;
+use App\Http\Controllers\PenilaianController;
+use App\Http\Controllers\PerhitunganController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SubKriteriaController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -60,5 +63,24 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/edit/{dataAlternatif:uuid}', [DataAlternatifController::class, 'editDataAlternatif'])->name('editDataAlternatif');
         Route::patch('/edit/{dataAlternatif:uuid}', [DataAlternatifController::class, 'updateDataAlternatif'])->name('updateDataAlternatif');
         Route::delete('/delete/{dataAlternatif:uuid}', [DataAlternatifController::class, 'deleteDataAlternatif'])->name('deleteDataAlternatif');
+    });
+
+    Route::prefix('/penilaian')->group(function () {
+        Route::get('/', [PenilaianController::class, 'indexPenilaian'])->name('indexPenilaian');
+        Route::post('/create/{alternatif}', [PenilaianController::class, 'storePenilaian'])->name('storePenilaian');
+        Route::patch('/update/{alternatif}', [PenilaianController::class, 'updatePenilaian'])->name('updatePenilaian');
+    });
+
+    Route::prefix('/perhitungan')->group(function () {
+        Route::get('/', [PerhitunganController::class, 'indexPerhitungan'])->name('indexPerhitungan');
+    });
+
+    Route::prefix('/user')->group(function () {
+        Route::get('/', [UserController::class, 'indexUser'])->name('indexUser');
+        Route::get('/create', [UserController::class, 'createUser'])->name('createUser');
+        Route::post('/create', [UserController::class, 'storeUser'])->name('storeUser');
+        Route::get('/edit/{user:uuid}', [UserController::class, 'editUser'])->name('editUser');
+        Route::patch('/edit/{user:uuid}', [UserController::class, 'updateUser'])->name('updateUser');
+        Route::delete('/delete/{user:uuid}', [UserController::class, 'deleteUser'])->name('deleteUser');
     });
 });

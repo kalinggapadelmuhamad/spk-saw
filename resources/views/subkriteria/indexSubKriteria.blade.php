@@ -9,8 +9,6 @@
             <div class="card-header py-3">
                 <h6 class="m-0 font-weight-bold text-primary"><i class="fa fa-table"></i> Daftar Data Sub Kriteria</h6>
             </div>
-
-    
         @else
             @foreach ($subkriterias as $subkriteria)
                 <div class="card shadow mb-4">
@@ -20,7 +18,8 @@
                             <h6 class="m-0 font-weight-bold text-black">
                                 {{ $subkriteria->nama . ' (' . $subkriteria->kode_kriteria . ')' }}</h6>
 
-                            <a href="#tambah{{ $subkriteria->id }}" data-toggle="modal" class="btn btn-sm btn-success bg-primary"> Tambah Sub kriteria </a>
+                            <a href="#tambah{{ $subkriteria->id }}" data-toggle="modal"
+                                class="btn btn-sm btn-success bg-primary"> Tambah Sub kriteria </a>
                         </div>
                     </div>
 
@@ -67,10 +66,10 @@
                             <table class="table table-bordered" width="100%" cellspacing="0">
                                 <thead class=" text-black">
                                     <tr align="center">
-                                        <th width="5%">No</th>
+                                        <th width="3%">No</th>
                                         <th>Nama Sub Kriteria</th>
                                         <th>Nilai</th>
-                                        <th width="15%">Aksi</th>
+                                        <th width="15%">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -83,7 +82,8 @@
                                                 <div class="btn-group" role="group">
                                                     <a data-toggle="modal" title="Edit Data"
                                                         href="#editsk{{ $SubKriteria->id }}"
-                                                        class="btn btn-warning btn-sm btn rounded mr-2"><i class="fa fa-edit"></i></a>
+                                                        class="btn btn-warning btn-sm btn rounded mr-2"><i
+                                                            class="fa fa-edit"></i></a>
 
                                                     <form action="{{ route('deleteSubKriteria', $SubKriteria) }}"
                                                         method="post">

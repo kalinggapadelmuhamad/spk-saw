@@ -53,25 +53,28 @@
             <div class="col-auto mx-auto">
                 <div class="card o-hidden border-0 shadow-lg my-5">
                     <div class="card-body py-4 px-4">
-                        <div class="text-center">
-                            <h1 class="h4 text-gray-900 mb-4">Login</h1>
-                            <p>use credentials to access your account.</p>
+                        <div class="mb-4">
+                            <h1 class="h3 tex-black font-weight-bold">Masuk</h1>
+                            <p>Gunakan NRP & Password anda untuk masuk.</p>
                         </div>
                         <form class="user" action="{{ route('storeLogin') }}" method="post">
                             @csrf
                             <div class="form-group">
-                                <input required autocomplete="off" type="text" value=""
-                                    class="form-control form-control-user" id="exampleInputUser" placeholder="Username"
-                                    name="username" />
+                                <input required autocomplete="off" type="number" value=""
+                                    class="form-control form-control-user" id="exampleInputUser" placeholder="NRP"
+                                    name="nrp" />
                             </div>
+                            @error('nrp')
+                                <p class="text-danger fs-6 fw-light my-2">{{ $message }}</p>
+                            @enderror
                             <div class="form-group">
                                 <input required autocomplete="off" type="password"
                                     class="form-control form-control-user" id="exampleInputPassword" name="password"
                                     placeholder="Password" />
                             </div>
-                            <button name="submit" type="submit" class="btn btn-primary btn-user btn-block">
+                            <button name="submit" type="submit" class="btn btn-primary btn-user btn-block mt-4">
                                 Masuk</button>
-                            <div class="text-center mt-2">
+                            <div class="text-center mt-3">
                                 <p class="fs-6 fw-light">Belum punya akun ?
                                     <a href="{{ route('indexDaftar') }}"
                                         class="fw-light text-decoration-none text-color">Daftar</a>

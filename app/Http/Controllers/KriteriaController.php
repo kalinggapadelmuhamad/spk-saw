@@ -12,7 +12,7 @@ class KriteriaController extends Controller
 {
     public function indexKriteria()
     {
-        $kriterias  = Kriteria::orderBy('id', 'ASC')->get();
+        $kriterias  = Kriteria::latest()->get();
         $page       = 'kriteria';
         return view('kriteria.indexKriteria', compact(
             'kriterias',
@@ -31,7 +31,7 @@ class KriteriaController extends Controller
     public function storeKriteria(Request $request)
     {
         $request->validate([
-            'kode_kriteria' => 'required',
+            'kode_kriteria' => 'required|unique:kriterias',
             'nama'          => 'required|unique:kriterias',
             'type'          => 'required',
             'bobot'         => 'required',
@@ -62,7 +62,6 @@ class KriteriaController extends Controller
 
     public function updateKriteria(Request $request, Kriteria $kriteria)
     {
-        // dd($request->all());
         $request->validate([
             'kode_kriteria' => 'required|string|unique:kriterias,kode_kriteria,' . $kriteria->id,
             'nama'          => 'required|string|unique:kriterias,nama,' . $kriteria->id,

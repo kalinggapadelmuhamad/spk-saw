@@ -35,20 +35,20 @@
                 <span>Data Sub Kriteria</span></a>
         </li>
 
-        <li class="nav-item {{ $page === 'alternatif' ? 'active' : '' }}"">
+        <li class="nav-item {{ $page === 'alternatif' ? 'active' : '' }}">
             <a class="nav-link" href="{{ route('indexDataAlternatif') }}">
                 <i class="fas fa-fw fa-users"></i>
                 <span>Data Alternatif</span></a>
         </li>
 
-        <li class="nav-item">
-            <a class="nav-link" href="">
+        <li class="nav-item {{ $page === 'penilaian' ? 'active' : '' }}">
+            <a class="nav-link" href="{{ route('indexPenilaian') }}">
                 <i class="fas fa-fw fa-edit"></i>
                 <span>Data Penilaian</span></a>
         </li>
 
-        <li class="nav-item">
-            <a class="nav-link" href="">
+        <li class="nav-item {{ $page === 'perhitungan' ? 'active' : '' }}">
+            <a class="nav-link" href="{{ route('indexPerhitungan') }}">
                 <i class="fas fa-fw fa-calculator"></i>
                 <span>Data Perhitungan</span></a>
         </li>
@@ -69,8 +69,8 @@
     </div>
 
     @if (Auth::user()->role == 'admin')
-        <li class="nav-item">
-            <a class="nav-link" href="">
+        <li class="nav-item {{ $page === 'user' ? 'active' : '' }}">
+            <a class="nav-link" href="{{ route('indexUser') }}">
                 <i class="fas fa-fw fa-users-cog"></i>
                 <span>Data User</span></a>
         </li>

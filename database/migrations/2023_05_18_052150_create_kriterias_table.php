@@ -18,7 +18,6 @@ return new class extends Migration
             $table->string('nama');
             $table->enum('type', ['Benefit', 'Cost']);
             $table->float('bobot');
-            // $table->tinyInteger('ada_pilihan');
             $table->timestamps();
         });
     }

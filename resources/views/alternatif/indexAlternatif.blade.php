@@ -13,10 +13,10 @@
 
         <div class="card-body">
             <div class="table-responsive">
-                <table class="table table-bordered" width="100%" cellspacing="0">
+                <table class="table table-bordered" width="100%" cellspacing="0" id="dataTable">
                     <thead class=" text-black">
                         <tr align="center">
-                            <th>No</th>
+                            <th style="width: 3%">No</th>
                             <th>Nrp</th>
                             <th>Nama</th>
                             <th width="15%">Action</th>

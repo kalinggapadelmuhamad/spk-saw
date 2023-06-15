@@ -19,18 +19,28 @@ class AuthController extends Controller
         return view('auth.login.indexLogin');
     }
 
-    
+
     public function storeLogin(Request $request)
     {
         $request->validate([
-            'username' => 'required',
-            'password' => 'required'
+            'nrp'       => 'required|min:5',
+            'password'  => 'required'
         ]);
 
-        $credentials = $request->only('username', 'password');
+        $credentials = $request->only('nrp', 'password');
         if (Auth::attempt($credentials)) {
-            Alert::success('Login berhasil', 'Selamat Datang ' . Auth::user()->nama);
-            return Redirect::route('indexDashboard');
+
+            $isActive = Auth::user()->status;
+            if ($isActive) {
+
+                Alert::success('Login berhasil', 'Selamat Datang ' . Auth::user()->nama);
+                return Redirect::route('indexDashboard');
+            }
+
+            $request->session()->invalidate();
+            $request->session()->regenerateToken();
+            Alert::info('Login gagal', 'Akun belum di aktivasi');
+            return Redirect::back();
         }
 
         Alert::error('Error', 'Username atau password salah!');
@@ -48,13 +58,13 @@ class AuthController extends Controller
         $request->validate([
             'nama'      => 'required|string',
             'email'     => 'required|email|string|unique:users',
-            'username'  => 'required|string|unique:users',
+            'nrp'       => 'required|min:5|unique:users',
             'password'  => 'required|min:8'
         ]);
 
         User::create([
             'uuid'      => Str::uuid(),
-            'username'  => $request->username,
+            'nrp'       => $request->nrp,
             'password'  => bcrypt($request->password),
             'nama'      => $request->nama,
             'email'     => $request->email,

@@ -25,11 +25,12 @@ class DatabaseSeeder extends Seeder
         DB::table('users')->insert([
             [
                 'uuid'      => Str::uuid(),
-                'username'  => 'admin',
+                'nrp'       => 12345,
                 'password'  => Hash::make('admin'),
                 'nama'      => 'admin',
                 'email'     => 'admin@gmail.com',
-                'role'      => 'admin'
+                'role'      => 'admin',
+                'status'    => true
             ],
             // [
             //     'uuid'      => Str::uuid(),

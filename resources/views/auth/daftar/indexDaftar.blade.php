@@ -54,68 +54,66 @@
                 </div>
             </div> -->
 
-            <div class="col-auto">
+            <div class="col-auto  mx-auto">
                 <div class="card o-hidden border-0 shadow-lg my-5">
-                    <div class="card-body p-0">
+                    <div class="card-body py-4 px-4">
                         <!-- Nested Row within Card Body -->
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <div class="p-5">
-                                    <div class="text-center">
-                                        <h1 class="h4 text-gray-900 mb-4">Register</h1>
-                                    </div>
-
-                                    <form class="user" action="{{ route('storeDaftar') }}" method="post">
-                                        @csrf
-                                        <div class="form-group">
-                                            <input required autocomplete="off" type="text"
-                                                value="{{ old('nama') }}" class="form-control form-control-user"
-                                                id="exampleInputUser" placeholder="Nama Lengkap" name="nama" />
-                                            @error('nama')
-                                                <p class="text-danger fs-6 fw-light my-2">{{ $message }}</p>
-                                            @enderror
-                                        </div>
-                                        <div class="form-group">
-                                            <input required autocomplete="off" type="email"
-                                                value="{{ old('email') }}" class="form-control form-control-user"
-                                                id="exampleInputUser" placeholder="Email" name="email" />
-                                            @error('email')
-                                                <p class="text-danger fs-6 fw-light my-2">{{ $message }}</p>
-                                            @enderror
-                                        </div>
-                                        <div class="form-group">
-                                            <input required autocomplete="off" type="text"
-                                                value="{{ old('username') }}" class="form-control form-control-user"
-                                                id="exampleInputUser" placeholder="Username" name="username" />
-                                            @error('username')
-                                                <p class="text-danger fs-6 fw-light my-2">{{ $message }}</p>
-                                            @enderror
-                                        </div>
-                                        <div class="form-group">
-                                            <input required autocomplete="off" type="password"
-                                                class="form-control form-control-user" id="exampleInputPassword"
-                                                name="password" placeholder="Password" />
-                                            @error('password')
-                                                <p class="text-danger fs-6 fw-light my-2">{{ $message }}</p>
-                                            @enderror
-                                        </div>
-                                        <button name="submit" type="submit"
-                                            class="btn btn-primary btn-user btn-block"> Daftar
-                                        </button>
-                                        <div class="text-center mt-2">
-                                            <p class="fs-6 fw-light">Sudah punya akun ?
-                                                <a href="{{ route('indexLogin') }}"
-                                                    class="fw-light text-decoration-none text-color">Masuk</a>
-                                            </p>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
+                        <div class="mb-4">
+                            <h1 class="h3 tex-black font-weight-bold">Daftar</h1>
+                            <p>Mohon isi data di bawah ini dengan benar.</p>
                         </div>
+
+                        <form class="user" action="{{ route('storeDaftar') }}" method="post">
+                            @csrf
+                            <div class="form-group">
+                                <input required autocomplete="off" type="text" value="{{ old('nama') }}"
+                                    class="form-control form-control-user" id="exampleInputUser"
+                                    placeholder="Nama Lengkap" name="nama" />
+                                @error('nama')
+                                    <p class="text-danger fs-6 fw-light my-2">{{ $message }}</p>
+                                @enderror
+                            </div>
+                            <div class="form-group">
+                                <input required autocomplete="off" type="email" value="{{ old('email') }}"
+                                    class="form-control form-control-user" id="exampleInputUser" placeholder="Email"
+                                    name="email" />
+                                @error('email')
+                                    <p class="text-danger fs-6 fw-light my-2">{{ $message }}</p>
+                                @enderror
+                            </div>
+                            <div class="form-group">
+                                <input required autocomplete="off" type="number" value="{{ old('nrp') }}"
+                                    class="form-control form-control-user" id="exampleInputUser" placeholder="NRP"
+                                    name="nrp" />
+                                @error('nrp')
+                                    <p class="text-danger fs-6 fw-light my-2">{{ $message }}</p>
+                                @enderror
+                            </div>
+                            <div class="form-group">
+                                <input required autocomplete="off" type="password"
+                                    class="form-control form-control-user" id="exampleInputPassword" name="password"
+                                    placeholder="Password" />
+                                @error('password')
+                                    <p class="text-danger fs-6 fw-light my-2">{{ $message }}</p>
+                                @enderror
+                            </div>
+                            <button name="submit" type="submit" class="btn btn-primary btn-user btn-block mt-4"">
+                                Daftar
+                            </button>
+                            <div class="text-center mt-3">
+                                <p class="fs-6 fw-light">Sudah punya akun ?
+                                    <a href="{{ route('indexLogin') }}"
+                                        class="fw-light text-decoration-none text-color">Masuk</a>
+                                </p>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
+    </div>
+    </div>
     </div>
 
     <!-- Bootstrap core JavaScript-->

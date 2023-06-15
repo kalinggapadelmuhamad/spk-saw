@@ -14,9 +14,11 @@ return new class extends Migration
         Schema::create('penilaians', function (Blueprint $table) {
             $table->id();
             $table->uuid('uuid');
+            $table->foreignId('user_id')->constrained('users')->cascadeOnDelete()->cascadeOnUpdate();
             $table->foreignId('alternatif_id')->constrained('alternatifs')->cascadeOnDelete()->cascadeOnUpdate();
             $table->foreignId('kriteria_id')->constrained('kriterias')->cascadeOnDelete()->cascadeOnUpdate();
-            $table->float('nilai');
+            $table->foreignId('sub_kriteria_id')->constrained('sub_kriterias')->cascadeOnDelete()->cascadeOnUpdate();
+            $table->float('nilai')->nullable();
             $table->timestamps();
         });
     }
