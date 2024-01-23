@@ -124,7 +124,7 @@
                                                                 @foreach ($dataKriteria->SubKriteria as $index => $subKriteria)
                                                                     @if ($penilaian && !is_null($penilaian->nilai))
                                                                         <option value="{{ $subKriteria->id }}"
-                                                                            {{ $subKriteria->id == $penilaian->nilai ? 'selected' : '' }}>
+                                                                            {{ $subKriteria->id == $penilaian->sub_kriteria_id ? 'selected' : '' }}>
                                                                             {{ $subKriteria->nama }}
                                                                         </option>
                                                                     @endif
